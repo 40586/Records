@@ -21,8 +21,18 @@ def employee_list():
         employee_records.append(employee)
     return employee_records
 
-def display():
+def display(employee_records):
     for count in range(len(employee_records)):
-        print("*" * 20)
-        print("* Pay Slip"," " *9,"*")
-        print
+        print("*" * 40)
+        print("* Pay Slip"," " *27,"*")
+        print("* Name: {0} {1:>{2}}".format(employee_records[count].name,"*",31-(len(str(employee_records[count].name)))))
+        print("* Employee Number: {0} {1:>{2}}".format(employee_records[count].number,"*",20-(len(str(employee_records[count].number)))))
+        print("* Hours Worked: {0} {1:>{2}}".format(employee_records[count].hours,"*",23-(len(str(employee_records[count].hours)))))
+        print("* Rate of pay: {0} {1:>{2}}".format(employee_records[count].pay_rate,"*",24-(len(str(employee_records[count].pay_rate)))))
+        print("*"," "*36,"*")
+        total = employee_records[count].hours*employee_records[count].pay_rate
+        print("* Total pay: {0} {1:>{2}}".format(total,"*",26-(len(str(total)))))
+        print("*" * 40)
+
+employee_records = employee_list()
+display(employee_records)
